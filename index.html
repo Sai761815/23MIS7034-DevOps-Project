@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahyadri Trails — Maharashtra Tourism</title>
+<meta name="description" content="Plan your monsoon trail through the Sahyadris: waterfalls, forts, backwaters and wildlife, with stays and a five-day itinerary.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <nav>
+      <a href="javascript:void(0)" data-scroll="top" class="brand">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M2 24L11 9L16 17L20 11L30 24H2Z" fill="currentColor"/><circle cx="24" cy="7" r="3" fill="var(--marigold-500)"/></svg>
+        Sahyadri Trails
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="javascript:void(0)" data-scroll="destinations">Destinations</a></li>
+        <li><a href="javascript:void(0)" data-scroll="stay">Stay</a></li>
+        <li><a href="javascript:void(0)" data-scroll="itinerary">Itinerary</a></li>
+        <li><a href="javascript:void(0)" data-scroll="map">Map</a></li>
+        <li><a href="javascript:void(0)" data-scroll="book">Book</a></li>
+      </ul>
+      <a href="javascript:void(0)" data-scroll="book" class="btn btn-dark nav-cta">Plan your trip</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <svg class="hero-topo" viewBox="0 0 1180 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M-50 560 Q 200 460 400 540 T 900 500 T 1250 560" stroke="#F7F6EE" stroke-width="1" fill="none"/>
+    <path d="M-50 600 Q 220 500 420 580 T 920 540 T 1250 600" stroke="#F7F6EE" stroke-width="1" fill="none"/>
+    <path d="M-50 640 Q 240 540 440 620 T 940 580 T 1250 640" stroke="#F7F6EE" stroke-width="1" fill="none"/>
+    <path d="M-50 500 Q 180 400 380 480 T 880 440 T 1250 500" stroke="#F7F6EE" stroke-width="1" fill="none"/>
+    <path d="M-50 440 Q 160 340 360 420 T 860 380 T 1250 440" stroke="#F7F6EE" stroke-width="1" fill="none"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow" style="color:var(--marigold-500)">Maharashtra Tourism Department · Season 2026</div>
+    <h1>Forty waterfalls, six districts, <em>one monsoon</em> worth planning ahead for.</h1>
+    <p class="lede">The Sahyadri hill route fills up fast once the rains hit. Book your stays and routes before the holiday rush, and travel a trail mapped by people who grew up climbing it.</p>
+    <div class="hero-ctas">
+      <a href="javascript:void(0)" data-scroll="book" class="btn btn-primary">Start Planning</a>
+      <a href="javascript:void(0)" data-scroll="map" class="btn btn-ghost">View the Trail Map</a>
+    </div>
+    <div class="season-bar" id="seasonBar"></div>
+  </div>
+</section>
+
+<section class="section-pad" id="destinations">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The Trail</div>
+        <h2>Six stops worth the drive</h2>
+      </div>
+      <p class="lede">Each is under five hours from Pune or Mumbai — close enough for a long weekend, far enough to feel like you've actually left.</p>
+    </div>
+    <div class="dest-grid" id="destGrid"></div>
+  </div>
+</section>
+
+<section class="section-pad stay-dark" id="stay">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Where to Sleep</div>
+        <h2>Four stays along the route</h2>
+      </div>
+      <p class="lede">From homestays with home-cooked Malvani food to a restored Maratha-era fort resort.</p>
+    </div>
+    <div class="stay-list" id="stayList"></div>
+  </div>
+</section>
+
+<section class="section-pad" id="itinerary">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Travel Guide</div>
+        <h2>A five-day trail, mapped for you</h2>
+      </div>
+      <p class="lede">Start in the hills, end at the coast. Drive times assume a relaxed pace with stops.</p>
+    </div>
+    <div class="trail-wrap">
+      <div class="trail-line"></div>
+      <div id="trailStops"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad map-section" id="map">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Find Your Route</div>
+        <h2>The trail, laid out</h2>
+      </div>
+      <p class="lede">A schematic of the six stops and the roads between them. Swap in a live map provider at deployment.</p>
+    </div>
+    <div class="map-shell">
+      <svg viewBox="0 0 1000 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <path d="M110 90 Q 260 60 330 160 Q 400 260 260 300 Q 150 330 220 400 Q 280 440 430 420 Q 620 400 640 300 Q 660 210 800 190" fill="none" stroke="var(--indigo-600)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" opacity="0.5"/>
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ghat-900)">
+          <circle cx="110" cy="90" r="7" fill="#9A4B34"/><text x="124" y="86">Mahabaleshwar</text>
+          <circle cx="330" cy="160" r="7" fill="#9A4B34"/><text x="344" y="156">Raigad Fort</text>
+          <circle cx="260" cy="300" r="7" fill="#9A4B34"/><text x="274" y="296">Tarkarli Backwaters</text>
+          <circle cx="220" cy="400" r="7" fill="#9A4B34"/><text x="234" y="416">Amboli Falls</text>
+          <circle cx="430" cy="420" r="7" fill="#9A4B34"/><text x="444" y="416">Radhanagari</text>
+          <circle cx="800" cy="190" r="7" fill="#9A4B34"/><text x="770" y="176">Ganpatipule Beach</text>
+        </g>
+      </svg>
+      <div class="map-legend">
+        <span><span class="dot"></span> Destination</span>
+        <span><span class="dot" style="background:var(--indigo-600)"></span> Suggested route</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad booking" id="book">
+  <div class="wrap">
+    <div class="eyebrow">Check Availability</div>
+    <h2>Ready when the rains are.</h2>
+    <p class="lede" style="color:rgba(247,246,238,0.75);">Tell us where and when — we'll flag which stays and routes are still open for your dates.</p>
+    <div class="booking-card">
+      <div class="booking-grid" id="bookingForm">
+        <div class="field">
+          <label for="destSelect">Destination</label>
+          <select id="destSelect">
+            <option>Mahabaleshwar</option>
+            <option>Raigad Fort</option>
+            <option>Tarkarli Backwaters</option>
+            <option>Amboli Falls</option>
+            <option>Radhanagari Sanctuary</option>
+            <option>Ganpatipule Beach</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="startSelect">Trip starts</label>
+          <select id="startSelect">
+            <option value="1">Tomorrow</option>
+            <option value="3">In 3 days</option>
+            <option value="7" selected>In 1 week</option>
+            <option value="14">In 2 weeks</option>
+            <option value="30">Next month</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="nightsSelect">Length of stay</label>
+          <select id="nightsSelect">
+            <option value="2">2 nights</option>
+            <option value="3" selected>3 nights</option>
+            <option value="4">4 nights</option>
+            <option value="5">5 nights</option>
+            <option value="7">7 nights</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="guestsSelect">Guests</label>
+          <select id="guestsSelect">
+            <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option>
+          </select>
+        </div>
+        <button type="button" id="checkAvailBtn" class="btn btn-primary">Check availability</button>
+      </div>
+      <div class="booking-status" id="bookingStatus"></div>
+      <div id="availabilityResults"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M2 24L11 9L16 17L20 11L30 24H2Z" fill="currentColor"/><circle cx="24" cy="7" r="3" fill="var(--marigold-500)"/></svg>
+          Sahyadri Trails
+        </div>
+        <p style="font-size:14px;max-width:280px;">An initiative of the Maharashtra Tourism Department to route travelers through the Western Ghats sustainably, one district at a time.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="javascript:void(0)" data-scroll="destinations">Destinations</a></li>
+          <li><a href="javascript:void(0)" data-scroll="stay">Stay</a></li>
+          <li><a href="javascript:void(0)" data-scroll="itinerary">Itineraries</a></li>
+          <li><a href="javascript:void(0)" data-scroll="map">Trail Map</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Plan</h4>
+        <ul>
+          <li><a href="javascript:void(0)" data-scroll="book">Check Availability</a></li>
+          <li><a href="javascript:void(0)" data-scroll="top">Season Guide</a></li>
+          <li><a href="javascript:void(0)" data-scroll="itinerary">5-Day Route</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>info@sahyadritrails.gov.in</li>
+          <li>+91 20 2612 XXXX</li>
+          <li>Tourism Bhavan, Pune, MH</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sahyadri Trails · Maharashtra Tourism Department</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
